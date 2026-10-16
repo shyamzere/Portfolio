@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shyam Zere | Software and AI Engineer</title>
+<meta name="description" content="Shyam Zere, software and AI engineer in Auckland. Builder of Synapic and other full-stack, AI-integrated products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="bar" id="bar"></div>
+<header class="top">
+  <a class="mark" href="#" aria-label="Back to top">SZ</a>
+  <nav aria-label="Sections"><a href="#work">Work</a><a href="#building">Building</a><a href="#experience">Experience</a><a href="#toolkit">Toolkit</a><a href="#contact">Contact</a></nav>
+</header>
+<main>
+<section class="hero" id="top">
+  <div>
+    <h1><span>I get AI to do</span><span>the boring work,</span><span>so you don't have to.</span></h1>
+    <p class="lede">Hey, I'm Shyam, a final year Computer Science student at the University of Auckland. My main project is <a href="https://synapicai.vercel.app" target="_blank" rel="noopener">Synapic</a>, an AI study platform used by 50+ students. Right now I'm building Nodefy, an AI automation company. Outside tech, I'm into football and martial arts: karate, MMA, boxing and kickboxing. I also have experience in hospitality and freelancing.</p>
+    <div class="acts"><a class="btn p" href="mailto:shyamzere@gmail.com">Email me</a><a class="btn g" href="assets/Shyam-Zere-Resume.pdf" target="_blank" rel="noopener">Resume</a></div>
+  </div>
+  <div class="photo" aria-label="Photo of Shyam">SZ<img src="assets/photo.jpg" alt="Shyam Zere" onerror="this.remove()"></div>
+</section>
+
+<section class="stats" aria-label="Numbers">
+  <div class="stat" data-r><b data-count="50" data-suf="+">0</b><span>active Synapic users</span></div>
+  <div class="stat" data-r><b data-count="3" data-pre="<" data-suf="s">0</b><span>to turn notes into flashcards</span></div>
+  <div class="stat" data-r><b data-count="70" data-suf="%">0</b><span>less manual study prep</span></div>
+  <div class="stat" data-r><b data-count="100" data-suf="+">0</b><span>covers a shift at the wine house</span></div>
+</section>
+
+<section id="work">
+  <h2>Problems I've solved</h2>
+  <p class="sub">Each project started with something annoying and ended with something that works.</p>
+
+  <article class="case" data-r>
+    <h3>Synapic, AI study assistant</h3><p class="yr">2026</p>
+    <div class="prs">
+      <div><h4>The problem</h4><p>Students lose hours turning lecture notes into flashcards and quizzes before they can even start studying.</p></div>
+      <div><h4>What I built</h4><p>Paste notes in, get flashcards, quizzes and summaries back. React front end, FastAPI back end, Groq LLM, Supabase for auth and saved decks, CI/CD on Vercel and Render.</p></div>
+      <div><h4>The result</h4><p>Live with 50+ active users. Generation takes under three seconds and manual prep time dropped by over 70%.</p></div>
+    </div>
+    <div class="viz">
+      <div class="win" aria-label="Animated demo of Synapic">
+        <div class="wb"><i></i><i></i><i></i><span>synapicai.vercel.app (animated demo)</span></div>
+        <div class="wbody" id="demo" data-step="0">
+          <div class="notes" id="typed"></div>
+          <button class="gen" tabindex="-1">Generate Flashcards</button>
+          <div class="meter"><span id="cnt">0 cards generated</span><span id="tm">0.0s</span></div>
+          <div class="tabs"><span>Flashcards</span><span>Quiz</span><span>Summary</span></div>
+          <svg class="cur" id="cur" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2l16 9-7 2-3 7z" fill="#0b2240" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <div class="deck">
+            <div class="fc"><b>QUESTION</b><span class="q">What are the two main types of Machine Learning?</span><span class="a">Supervised and unsupervised learning</span></div>
+            <div class="fc"><b>QUESTION</b>What is Unsupervised Machine Learning?</div>
+            <div class="fc"><b>QUESTION</b>What is Regression?</div>
+          </div>
+          <div class="qz"><p class="qq">Which task predicts a continuous value?</p><div class="opt">Classification</div><div class="opt">Regression</div><div class="opt">Clustering</div></div>
+          <div class="sm"><p class="qq">Summary</p><ul><li>Machine learning has two main types.</li><li>Supervised learning trains on labeled data.</li><li>Unsupervised learning finds patterns in unlabeled data.</li></ul></div>
+        </div>
+      </div>
+      <div class="chart" data-r>
+        <h4>Time spent preparing study material</h4>
+        <div class="row">Before, by hand<div class="track"><div class="fill" style="--w:100%"></div></div></div>
+        <div class="row">With Synapic<div class="track"><div class="fill" style="--w:30%"></div></div></div>
+        <p class="sub" style="margin:8px 0 0;font-size:14px">Relative time. Manual prep set to 100%.</p>
+      </div>
+    </div>
+    <div class="arch" data-r>
+      <h4>How a request flows through Synapic</h4>
+      <svg viewBox="0 0 720 190" role="img" aria-label="React sends notes to FastAPI, which prompts the Groq LLM and saves decks to Supabase">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9cc8ff"/></marker></defs>
+        <line x1="140" y1="60" x2="288" y2="60" marker-end="url(#ar)"/><line x1="430" y1="60" x2="578" y2="60" marker-end="url(#ar)"/><line x1="360" y1="85" x2="360" y2="133" marker-end="url(#ar)"/>
+        <rect x="20" y="35" width="120" height="50" rx="12"/><text x="80" y="65" text-anchor="middle">React</text>
+        <rect x="290" y="35" width="140" height="50" rx="12"/><text x="360" y="65" text-anchor="middle">FastAPI</text>
+        <rect x="580" y="35" width="120" height="50" rx="12"/><text x="640" y="65" text-anchor="middle">Groq LLM</text>
+        <rect x="290" y="135" width="140" height="44" rx="12"/><text x="360" y="162" text-anchor="middle">Supabase</text>
+        <text class="lb" x="214" y="48" text-anchor="middle">notes</text><text class="lb" x="504" y="48" text-anchor="middle">prompt</text><text class="lb" x="372" y="116">saved decks</text>
+        <circle r="5" opacity="0"><animateMotion dur="3.2s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;.3;1" path="M140 60 L288 60"/><animate attributeName="opacity" dur="3.2s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;.04;.26;.3;1"/></circle>
+        <circle r="5" opacity="0"><animateMotion dur="3.2s" begin="1.07s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;.3;1" path="M430 60 L578 60"/><animate attributeName="opacity" dur="3.2s" begin="1.07s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;.04;.26;.3;1"/></circle>
+        <circle r="5" opacity="0"><animateMotion dur="3.2s" begin="2.13s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;.3;1" path="M360 85 L360 133"/><animate attributeName="opacity" dur="3.2s" begin="2.13s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;.04;.26;.3;1"/></circle>
+      </svg>
+    </div>
+    <ul class="tags"><li>Python</li><li>React</li><li>FastAPI</li><li>PostgreSQL</li><li>Groq LLM</li></ul>
+    <div class="links"><a href="https://synapicai.vercel.app" target="_blank" rel="noopener">View live</a><a href="https://github.com/shyamzere" target="_blank" rel="noopener">Source</a></div>
+  </article>
+
+  <article class="case" data-r>
+    <h3>Recipe Web Portal</h3><p class="yr">2025</p>
+    <div class="prs">
+      <div><h4>The problem</h4><p>Finding a recipe that fits the ingredients you already have means scrolling through pages of results.</p></div>
+      <div><h4>What I built</h4><p>With two teammates: search and filter by ingredient or cuisine, accounts, reviews and favourites, on a relational schema.</p></div>
+      <div><h4>The result</h4><p>A working full-stack app with an automated test suite that caught regressions before they shipped.</p></div>
+    </div>
+    <ul class="tags"><li>Python</li><li>Flask</li><li>JavaScript</li><li>SQL</li></ul>
+    <div class="links"><a href="https://github.com/shyamzere" target="_blank" rel="noopener">Source</a></div>
+  </article>
+
+  <article class="case" data-r>
+    <h3>Zombies, 3D FPS</h3><p class="yr">2023</p>
+    <div class="prs">
+      <div><h4>The problem</h4><p>I wanted to understand how a shooter really works, so I skipped the templates and built the core myself.</p></div>
+      <div><h4>What I built</h4><p>With one teammate: player movement, shooting, collision detection, a custom HUD, and hand-made assets and animation in Blender.</p></div>
+      <div><h4>The result</h4><p>A playable game built from scratch in Unity and C#.</p></div>
+    </div>
+    <ul class="tags"><li>Unity</li><li>C#</li><li>Blender</li></ul>
+    <div class="links"><a href="https://github.com/shyamzere" target="_blank" rel="noopener">Source</a></div>
+  </article>
+</section>
+
+<section id="building">
+  <h2>Currently building</h2>
+  <p class="sub">What I'm working on right now.</p>
+  <article class="case" data-r>
+    <h3>Nodefy</h3><p class="yr">2026, work in progress</p>
+    <div class="viz nfv">
+      <div>
+        <p>Nodefy is an AI automation company I'm building. We find the repetitive work hiding inside a business, then build custom automations that give the team its time back. No jargon, no black boxes, and everything built around how the team already works. It's early and still a work in progress.</p>
+        <div class="ask"><h4>Looking for someone to build this with</h4><p>If you're into AI, automation or the business side and want in early, get in touch.</p><a class="btn p" href="mailto:shyamzere@gmail.com?subject=Nodefy">Talk to me about Nodefy</a></div>
+      </div>
+      <div class="win"><div class="wb"><i></i><i></i><i></i><span>Nodefy (work in progress)</span></div>
+        <div class="wbody nf" id="nf" data-s="1">
+          <div class="nfs"><i>1</i><div><b>A customer reaches out</b><small>They tell us what is taking too long.</small><div class="nfx"><span class="bub">"Chasing invoices eats our whole Friday."</span></div></div></div>
+          <div class="nfs"><i>2</i><div><b>We map their workflow</b><small>We find the repetitive steps hiding in it.</small><div class="nfx"><span class="pill">Receive</span><span class="arr"></span><span class="pill hot">Copy data by hand</span><span class="arr"></span><span class="pill">Send</span></div></div></div>
+          <div class="nfs"><i>3</i><div><b>AI agents take over</b><small>Custom automations run the work.</small><div class="nfx"><em>Inbox agent</em><em>Scheduling agent</em><em>Reporting agent</em></div></div></div>
+          <img src="assets/nodefy.png" alt="Screenshot of Nodefy in progress" onerror="this.remove()"></div></div>
+    </div>
+  </article>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <p class="sub">Where the habit of staying precise under pressure got built.</p>
+  <div class="tl" data-r><div class="when">Nov 2024 to present</div><div><h3>Head Waiter and Bartender, Oak Barrel Wine House</h3><p>Run front-of-house across bar and dining for 100+ covers a shift.</p>
+    <div class="chart" style="margin-top:16px;max-width:460px"><div class="row">Service efficiency, up 25%<div class="track"><div class="fill" style="--w:75%"></div></div></div><div class="row">Junior onboarding time, down 30%<div class="track"><div class="fill" style="--w:70%"></div></div></div></div>
+    <p style="margin-top:8px">Trained and mentored three-plus junior staff.</p></div></div>
+  <div class="tl" data-r><div class="when">May 2023 to Aug 2024</div><div><h3>Waiter, La Vista</h3><p>Managed ten-plus tables at once while keeping order accuracy and guest satisfaction high.</p></div></div>
+</section>
+
+<section id="toolkit">
+  <h2>Toolkit</h2><p class="sub">What I reach for most.</p>
+  <div class="skills">
+    <div class="sk" data-r><h3>Languages</h3><ul><li>Python</li><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>SQL</li><li>C</li><li>C#</li><li>R</li></ul></div>
+    <div class="sk" data-r><h3>Frameworks and infra</h3><ul><li>React</li><li>FastAPI</li><li>Flask</li><li>Node.js</li><li>CI/CD</li><li>AWS</li><li>Vercel</li><li>Supabase</li></ul></div>
+    <div class="sk" data-r><h3>Practice</h3><ul><li>Full-stack development</li><li>REST APIs</li><li>AI/LLM integration</li><li>Agile</li><li>Data analysis</li></ul></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Get in touch</h2>
+  <p class="sub">Graduating November 2026 and looking for software or AI engineering internships and graduate roles in Auckland or Australia.</p>
+  <a class="big" href="mailto:shyamzere@gmail.com">shyamzere@gmail.com</a>
+  <a class="big" href="https://linkedin.com/in/shyamzere" target="_blank" rel="noopener">linkedin.com/in/shyamzere</a>
+  <a class="big" href="https://github.com/shyamzere" target="_blank" rel="noopener">github.com/shyamzere</a>
+</section>
+</main>
+<footer>Built by Shyam Zere, Auckland. Last updated October 2026.</footer>
+<script src="script.js"></script>
+</body>
+</html>
